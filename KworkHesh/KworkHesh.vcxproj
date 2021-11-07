@@ -24,6 +24,7 @@
     <ProjectGuid>{debaeb99-0a72-4ebf-aabb-7c5e73734247}</ProjectGuid>
     <RootNamespace>KworkHesh</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>KworkHash</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
