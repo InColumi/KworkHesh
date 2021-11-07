@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 
 using namespace std;
 
@@ -61,6 +62,10 @@ void remove(vector<string>& items, string item)
 int main()
 {
 	setlocale(LC_ALL, "rus");
+
+	std::ofstream out;
+	out.open("output.txt");
+
 	int sizeTable;
 	int countRequest;
 	string command;
@@ -94,14 +99,14 @@ int main()
 			{
 				if (hashTable[hashCode][i] == line)
 				{
-					cout << "yes\n";
+					out << "yes\n";
 					isExist = true;
 					break;
 				}
 			}
 			if (isExist == false)
 			{
-				cout << "no\n";
+				out << "no\n";
 			}
 		}
 		else if (command == "check")
@@ -110,13 +115,13 @@ int main()
 			size_t size = hashTable[index].size();
 			if (size == 0)
 			{
-				cout << " ";
+				out << " ";
 			}
 			for (size_t i = 0; i < hashTable[index].size(); i++)
 			{
-				cout << hashTable[index][i] << ' ';
+				out << hashTable[index][i] << ' ';
 			}
-			cout << "\n";
+			out << "\n";
 		}
 		--countRequest;
 	}
