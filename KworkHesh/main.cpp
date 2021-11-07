@@ -5,24 +5,19 @@
 using namespace std;
 
 const unsigned long int _p = 1000000007;
-const unsigned long int _x = 263;
-
-int getMod(unsigned long int a, unsigned long int p)
-{
-	return (a >= 0) ? a % p : p + (a % p);
-}
+const unsigned long long int _x = 263;
 
 unsigned long int getHashCode(string line, int m)
 {
-	unsigned long int sum = 0;
-	unsigned long int xK = 1;
+	unsigned long long int sum = 0;
+	unsigned long long int xK = 1;
 	for (size_t i = 0; i < line.size(); i++)
 	{
-		sum += getMod(((int)line[i] * xK), _p);
-		xK *= _x;
+		sum += (int)line[i] * xK;
+		xK = (xK * _x) % _p;
 	}
 
-	return getMod(sum, m);
+	return (sum %_p) % m;
 }
 
 void pushFront(vector<string>& items, string item)
@@ -72,16 +67,14 @@ int main()
 	string line;
 	
 	cin >> sizeTable;
-
 	cin >> countRequest;
 	
 	vector<vector<string>> hashTable(sizeTable);
 
 	unsigned int hashCode;
-	while (countRequest >= 0)
+	while (countRequest > 0)
 	{
 		cin >> command;
-
 		cin >> line;
 		if (command == "add")
 		{
@@ -125,7 +118,7 @@ int main()
 			}
 			cout << "\n";
 		}
-		countRequest--;
+		--countRequest;
 	}
 	system("pause");
 	return 0;
